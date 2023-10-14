@@ -1,0 +1,25 @@
+function onFormSubmit(e) {
+  // Get the form response and contact number from the submission
+  var responses = e.values;
+  var contactNumber = responses[1]; // Adjust the column index as needed
+
+  // Generate a unique QR code based on the contact number
+  var qrCode = generateQRCode(contactNumber);
+
+  // Update the Google Sheets response sheet with the QR code
+  var sheet = e.range.getSheet();
+  var row = e.range.getRow();
+  sheet.getRange(row, 3).setValue(qrCode); // Assuming the QR code is in the third column
+
+  // You would need to implement the generateQRCode function using an external QR code generation library or service
+  // For example, you can use a library like QRcode.js or a service like QR Code API.
+}
+
+// This function generates a QR code using an external library or service
+function generateQRCode(contactNumber) {
+  // You would need to implement this function to generate the QR code
+  // You can use external QR code generation libraries or services.
+  // For example, using the QR Code API.
+  // Make an HTTP request to a QR code generation service and get the QR code image URL.
+  // Return the image URL or data to be stored in the spreadsheet.
+}
